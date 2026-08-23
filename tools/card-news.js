@@ -47,7 +47,7 @@ const brandBar = `
   <g font-family="${FONT}">
     <circle cx="84" cy="90" r="14" fill="${FIRE}"/>
     <text x="112" y="101" font-size="34" font-weight="900" fill="${INK}">불꽃캠프</text>
-    <text x="996" y="101" text-anchor="end" font-size="26" font-weight="700" fill="${MUT}">${esc(cfg.handle || '')}</text>
+    <text x="996" y="101" text-anchor="end" font-size="26" font-weight="700" fill="${MUT}">${esc(cfg.handle || '@sparkcamp_2026')}</text>
   </g>`;
 
 const sampleTag = cfg.sample ? `
