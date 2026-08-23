@@ -3,6 +3,8 @@
 // 입력 JSON: { week: "19주차 (8/22-23)", handle: "@인스타핸들", sample: false,
 //   items: [ { rank:1, subject:"사문", source:"2024 수능 사회문화 17번",
 //              trap:"함정 한 줄", key:"핵심 개념 한 줄", votes:3 }, ... ] }
+// votes는 TOP5 선정용 내부 데이터 — 카드에 표시하지 않는다.
+// ⚠️ 대외 콘텐츠(카드·캡션·톡방 공지)에 "조교" 언급 금지 (사용자 방침 2026-08-23).
 // 출력: 00-cover.png, 01~05-item.png, 99-cta.png
 // 출처(source)·원문 규칙 (사용자 방침 2026-08-23):
 //   기출(수능·평가원·교육청) = 실명 표기("2024 수능 사회문화 17번") + 원문 게재 OK(사용자 확인).
@@ -67,7 +69,7 @@ async function png(svg, name) {
       <text x="80" y="470" font-size="88" font-weight="900" fill="${INK}">이번 주 애들이</text>
       <text x="80" y="580" font-size="88" font-weight="900" fill="${INK}">가장 많이 틀린 문제</text>
       <text x="80" y="716" font-size="110" font-weight="900" fill="${FIRE}">TOP 5</text>
-      <text x="84" y="820" font-size="32" font-weight="600" fill="${MUT}">조교들이 채점하며 직접 뽑았습니다</text>
+      <text x="84" y="820" font-size="32" font-weight="600" fill="${MUT}">이번 주 캠프 모의고사에서 그대로 뽑았습니다</text>
       <rect x="84" y="900" width="380" height="72" rx="36" fill="${FIRE}"/>
       <text x="274" y="948" text-anchor="middle" font-size="32" font-weight="800" fill="#fff">넘겨서 확인 →</text>
     </g></svg>`, '00-cover.png');
@@ -88,7 +90,7 @@ async function png(svg, name) {
         <rect x="84" y="${560 + trapLines.length * 54}" width="912" height="${100 + keyLines.length * 54}" rx="24" fill="${SOFT}"/>
         <text x="120" y="${622 + trapLines.length * 54}" font-size="30" font-weight="800" fill="${DEEP}">🔑 핵심 한 줄</text>
         <text font-size="40" font-weight="900" fill="${DEEP}">${tspans(keyLines, 120, 685 + trapLines.length * 54, 54)}</text>
-        <text x="84" y="1010" font-size="28" font-weight="700" fill="${MUT}">채점 조교 ${it.votes}명이 공통 지목 · ${esc(cfg.week)}</text>
+        <text x="84" y="1010" font-size="28" font-weight="700" fill="${MUT}">🔥 불꽃캠프 오답 리포트 · ${esc(cfg.week)}</text>
       </g></svg>`, `${String(it.rank).padStart(2, '0')}-item.png`);
   }
 
